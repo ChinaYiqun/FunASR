@@ -17,7 +17,9 @@ import argparse
  
 
 app = Flask(__name__,static_folder='static',static_url_path="/static")
-
+from flask_ngrok import run_with_ngrok
+from flask import Flask
+run_with_ngrok(app)   # 将flask app对象传递给run_with_ngrok函数
 @app.route('/')
 def homePage():
     return render_template('recorderapp_test.html')
